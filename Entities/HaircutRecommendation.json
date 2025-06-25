@@ -1,4 +1,172 @@
 {
   "name": "HaircutRecommendation",
-  ... (your json omitted for brevity - will be included in actual file) ...
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "ID of the user who received the recommendation"
+    },
+    "face_shape": {
+      "type": "string",
+      "enum": [
+        "oval",
+        "round",
+        "square",
+        "heart",
+        "diamond",
+        "oblong"
+      ],
+      "description": "Detected face shape"
+    },
+    "ethnicity": {
+      "type": "string",
+      "description": "Detected ethnicity/heritage for personalized recommendations"
+    },
+    "gender": {
+      "type": "string",
+      "enum": [
+        "male",
+        "female",
+        "non-binary"
+      ],
+      "description": "Detected gender for appropriate hairstyle suggestions"
+    },
+    "age_group": {
+      "type": "string",
+      "enum": [
+        "adult",
+        "child",
+        "baby"
+      ],
+      "description": "Detected age group of the person in the photo"
+    },
+    "inferred_hair_length": {
+      "type": "string",
+      "enum": [
+        "Short",
+        "Medium",
+        "Long"
+      ],
+      "description": "Inferred current hair length from the photo."
+    },
+    "face_shape_detection_method": {
+      "type": "string",
+      "enum": [
+        "ai_detected"
+      ],
+      "description": "Face shape is now always AI-detected"
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "style_name": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "technique_details": {
+            "type": "string"
+          },
+          "confidence_score": {
+            "type": "number"
+          },
+          "maintenance_level": {
+            "type": "string",
+            "enum": [
+              "Low",
+              "Medium",
+              "High"
+            ]
+          },
+          "why_it_fits": {
+            "type": "string"
+          },
+          "styling_tips": {
+            "type": "string"
+          },
+          "maintenance_schedule": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "style_name",
+          "instructions",
+          "technique_details",
+          "confidence_score",
+          "maintenance_level",
+          "why_it_fits",
+          "styling_tips",
+          "maintenance_schedule"
+        ]
+      },
+      "description": "Array of unified haircut recommendations"
+    },
+    "facial_hair_recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "style_name": {
+            "type": "string"
+          },
+          "barber_instructions": {
+            "type": "string"
+          },
+          "why_it_fits": {
+            "type": "string"
+          },
+          "maintenance_level": {
+            "type": "string",
+            "enum": [
+              "Low",
+              "Medium",
+              "High"
+            ]
+          },
+          "trending_appeal": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "style_name",
+          "barber_instructions",
+          "why_it_fits",
+          "maintenance_level",
+          "trending_appeal"
+        ]
+      },
+      "description": "Array of modern facial hair style recommendations with barber instructions."
+    },
+    "original_image_url": {
+      "type": "string",
+      "description": "URL to the original uploaded selfie"
+    },
+    "tier_used": {
+      "type": "string",
+      "enum": [
+        "free"
+      ],
+      "description": "Which tier was used for this recommendation"
+    }
+  },
+  "required": [
+    "user_id",
+    "face_shape",
+    "ethnicity",
+    "gender",
+    "age_group",
+    "inferred_hair_length",
+    "recommendations"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
 }
