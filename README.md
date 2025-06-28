@@ -65,3 +65,10 @@ cd BarberAI
 
 # Install dependencies
 npm install
+
+#usage
+#Start the development server:
+npm start
+
+#to test:
+npm test
