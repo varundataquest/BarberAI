@@ -1,4 +1,5 @@
 # BarberAI - https://app--barber-ai-b398c57e.base44.app
+# Video Demo: https://drive.google.com/file/d/1jUPmQFoQzrepUmLRRLyuLS-UZPUEDAIK/view?usp=sharing
 Barber AI gives custom hair &amp; beard suggestions via deep-learning facial analysis and image generation. It’s coded in React, Tailwind CSS, and shadcn/ui, and calls Base44’s InvokeLLM and GenerateImage APIs for real-time face-shape, age, gender, and ethnicity detection with secure auth and storage.
 <!-- ====================== BARBERAI README ====================== -->
 <h1 align="center">BARBERAI</h1>
